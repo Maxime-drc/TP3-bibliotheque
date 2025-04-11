@@ -8,4 +8,4 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 $routes->get('/Login', 'Login::index');
 $routes->post('Login', 'Login::attemptlogin');
-
+$routes->get('home', 'home::index');

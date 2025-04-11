@@ -18,6 +18,11 @@ class Login extends BaseController
         } else {
             return "Login failed";
         }
+
+    
+        $array = array('loggedIn' => true);
+        $this->session->set($array);
+        return redirect('home')
     }
 
 }
