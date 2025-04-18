@@ -9,7 +9,7 @@ class UserModel extends Model
     protected $table = 'abonne';
     protected $primaryKey = 'matricule_abonne';
 
-    protected $useAutoIncreement = true;
+    protected $useAutoIncrement = true;
 
     protected $returnType = 'array';
 
@@ -20,17 +20,12 @@ class UserModel extends Model
         'date_adhesion_abonne',
         'adresse_abonne',
         'telephone_abonne',
-        'CSP_abonne'
+        'CSP_abonne',         
+        'login',              
+        'mot_de_passe',
+        'role' 
     ];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
-
-
-
-
-
-
-
-
 }

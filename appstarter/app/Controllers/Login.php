@@ -20,14 +20,12 @@ class Login extends BaseController
 
         $user = $userModel->where('login', $login)->first();
 
-        if ($user && password_verify($password, $user['password'])) {
+        if ($user && password_verify($password, $user['mot_de_passe'])) {
             $session->set([
                 'loggedIn' => true,
-                'user_id' => $user['id'],
+                'user_id' => $user['matricule_abonne'],
                 'login' => $user['login'],
-                'role' => $user['role'],
-                'nom' => $user['nom'],
-                'prenom' => $user['prenom'],
+                'nom' => $user['nom_abonne'],
             ]);
 
             return redirect()->to('/bibliotheque');
