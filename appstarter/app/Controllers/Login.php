@@ -1,28 +1,44 @@
 <?php
 
 namespace App\Controllers;
+use App\Models\UserModel;
+
 class Login extends BaseController
 {
-    public function index(): string
+    public function index()
     {
         return view('login');
     }
+
     public function attemptLogin()
     {
-        $userModel = new \App\Models\UserModel();
+        $session = session();
+        $userModel = new UserModel();
 
-        $userFetched = $userModel ->where('matricule_abonne', $this->request->getPost('mlogin'))->first();
+        $login = $this->request->getPost('login');
+        $password = $this->request->getPost('password');
 
-        if($this->request->getpost('password') == $userFetched['nom_abonne']) {
-            return "Login OK";
+        $user = $userModel->where('login', $login)->first();
+
+        if ($user && password_verify($password, $user['password'])) {
+            $session->set([
+                'loggedIn' => true,
+                'user_id' => $user['id'],
+                'login' => $user['login'],
+                'role' => $user['role'],
+                'nom' => $user['nom'],
+                'prenom' => $user['prenom'],
+            ]);
+
+            return redirect()->to('/bibliotheque');
         } else {
-            return "Login failed";
+            return view('login', ['error' => 'Identifiants invalides.']);
         }
-
-    
-        $array = array('loggedIn' => true);
-        $this->session->set($array);
-        return redirect('home')
     }
 
+    public function logout()
+    {
+        session()->destroy();
+        return redirect()->to('/login');
+    }
 }
