@@ -292,6 +292,11 @@
 
 </div>
 
+<h2>Bienvenue <?= session('abonne')['nom_abonne'] ?></h2>
+<p>Vous êtes connecté !</p>
+<a href="/abonne/profil">Voir mon profil</a> |
+<a href="/abonne/emprunts">Mes emprunts</a>
+
 <!-- FOOTER: DEBUG INFO + COPYRIGHTS -->
 
 <footer>
