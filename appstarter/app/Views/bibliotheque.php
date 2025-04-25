@@ -1,2 +1,11 @@
-<h1>Bienvenue <?= session('nom') ?> sur la gestion de la bibliothèque</h1>
-<a href="/logout">Se déconnecter</a>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Page Bibliotheque</title>
+</head>
+<body>
+    <h1>Bienvenue Utilisateur</h1>
+    <p>BIBLIOTHEQUE</p>
+</body>
+</html>

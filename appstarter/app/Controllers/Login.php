@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\UserModel;
 
 class Login extends BaseController
@@ -12,31 +13,12 @@ class Login extends BaseController
 
     public function attemptLogin()
     {
-        $session = session();
-        $userModel = new UserModel();
-
-        $login = $this->request->getPost('login');
-        $password = $this->request->getPost('password');
-
-        $user = $userModel->where('login', $login)->first();
-
-        if ($user && password_verify($password, $user['mot_de_passe'])) {
-            $session->set([
-                'loggedIn' => true,
-                'user_id' => $user['matricule_abonne'],
-                'login' => $user['login'],
-                'nom' => $user['nom_abonne'],
-            ]);
-
-            return redirect()->to('/bibliotheque');
-        } else {
-            return view('login', ['error' => 'Identifiants invalides.']);
-        }
+        $userModel = new \App\Models\UserModel();
+        $userFetched = $userModel ->where('matricule_abonne', $this->request->getPost('login'))->first();
+    if ($userFetched && $this->request->getPost('password') === $userFetched['CSP_abonne']) {
+        return "Login OK";
+    } else {
+        return "Login KO";
     }
-
-    public function logout()
-    {
-        session()->destroy();
-        return redirect()->to('/login');
     }
 }
