@@ -6,19 +6,25 @@ use App\Models\UserModel;
 
 class Login extends BaseController
 {
-    public function index()
+    public function index(): string
     {
         return view('login');
     }
 
-    public function attemptLogin()
+    public function attemptlogin()
     {
-        $userModel = new \App\Models\UserModel();
-        $userFetched = $userModel ->where('matricule_abonne', $this->request->getPost('login'))->first();
-    if ($userFetched && $this->request->getPost('password') === $userFetched['CSP_abonne']) {
-        return "Login OK";
-    } else {
-        return "Login KO";
-    }
+        $usermodel = new UserModel();
+
+        $userfetched = $usermodel->where('login', $this->request->getPost('username'))->first();
+
+        if ($userfetched && $this->request->getPost('password') === $userfetched['mot_de_passe']) {
+            if (isset($userfetched['login']) && $userfetched['mot_de_passe'] === 'admin') {
+                return redirect()->to('/admin');
+            } else {
+                return redirect()->to('/bibliotheque');
+            }
+
+        } 
+        return redirect()->to('/Login');
     }
 }

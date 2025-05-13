@@ -5,6 +5,7 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
+<<<<<<< HEAD
 $routes->get('/', 'Home::index');
 $routes->get('Login', 'Login::index');            
 $routes->post('Login', 'Login::attemptLogin');     
@@ -20,3 +21,12 @@ $routes->get('abonne/profil', 'Abonne::profil');
 $routes->post('abonne/modifierProfil', 'Abonne::modifierProfil');
 $routes->get('abonne/deconnexion', 'Abonne::deconnexion');
 $routes->get('abonne/ajouterLivre', 'Abonne::ajouterLivre');
+=======
+$routes->get('/', 'Login::index');
+$routes->get('/Login', 'Login::index');
+$routes->post('/Login', 'Login::attemptLogin');
+$routes->get('/logout', 'Login::logout');
+
+$routes->get('/admin', 'Admin::index');
+$routes->get('/bibliotheque', 'Bibliotheque::index');
+>>>>>>> origin/DAMIEN

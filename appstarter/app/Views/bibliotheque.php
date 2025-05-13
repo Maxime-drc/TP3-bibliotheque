@@ -2,9 +2,9 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Page Admin</title>
+    <title>Page Abonné</title>
 </head>
 <body>
-    <h1>Bienvenue Admin</h1>
+    <h1>Bienvenue à la bibliothèque</h1>
 </body>
 </html>
