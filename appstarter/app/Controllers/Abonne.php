@@ -1,19 +1,34 @@
-public function creer()
-{
-    if ($this->request->getMethod() === 'post') {
-        $model = new \App\Models\AbonneModel();
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion / Inscription Abonné</title>
+</head>
+<body>
+    <h2>Connexion Abonné</h2>
+    <form method="POST" action="connexion_abonne.php">
+        <label>Matricule:</label>
+        <input type="text" name="matricule" required><br>
+        <label>Nom:</label>
+        <input type="text" name="nom" required><br>
+        <label>Mot de passe:</label>
+        <input type="password" name="mot_de_passe" required><br>
+        <button type="submit">Se connecter</button>
+    </form>
 
-        $data = $this->request->getPost([
-            'nom_abonne', 'date_naissance_abonne', 'adresse_abonne',
-            'telephone_abonne', 'CSP_abonne'
-        ]);
-        $data['mot_de_passe'] = password_hash($this->request->getPost('mot_de_passe'), PASSWORD_DEFAULT);
-        $data['date_adhesion_abonne'] = date('Y-m-d');
-
-        $model->insert($data);
-
-        return redirect()->to('/abonne/login')->with('message', 'Compte créé avec succès ! Connectez-vous.');
-    }
-
-    return view('abonne/creer');
-}
+    <h2>Créer un compte</h2>
+    <form method="POST" action="inscription_abonne.php">
+        <label>Matricule:</label>
+        <input type="text" name="matricule" required><br>
+        <label>Nom:</label>
+        <input type="text" name="nom" required><br>
+        <label>Prénom:</label>
+        <input type="text" name="prenom" required><br>
+        <label>Email:</label>
+        <input type="email" name="email" required><br>
+        <label>Mot de passe:</label>
+        <input type="password" name="mot_de_passe" required><br>
+        <button type="submit">Créer le compte</button>
+    </form>
+</body>
+</html>
