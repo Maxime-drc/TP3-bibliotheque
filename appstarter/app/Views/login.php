@@ -14,19 +14,17 @@
     <?php endif; ?>
 
     <form action="/Login" method="post">
-        <table>
-            <tr>
-                <td>Identifiant :</td>
-                <td><input type="text" name="username"></td>
-            </tr>
-            <tr>
-                <td>Mot de passe :</td>
-                <td><input type="password" name="password"></td>
-            </tr>
-            <tr>
-                <td colspan="2"><input type="submit" value="Se connecter"></td>
-            </tr>
-        </table>
+        <div class="form-group">
+            <label for="username">Identifiant</label>
+            <input type="text" name="username" id="username">
+        </div>
+        <div class="form-group">
+            <label for="password">Mot de passe</label>
+            <input type="password" name="password" id="password">
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Se connecter">
+        </div>
     </form>
 </div>
 
@@ -35,26 +33,30 @@
 
 <style>
         body {
-            background-color:rgb(209, 218, 233);
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #dceeff 25%, #eaf6ff 25%, #eaf6ff 50%, #dceeff 50%, #dceeff 75%, #eaf6ff 75%, #eaf6ff 100%);
+            background: linear-gradient(135deg, #e0f7fa 25%, #ffffff 25%, #ffffff 50%, #e0f7fa 50%, #e0f7fa 75%, #ffffff 75%, #ffffff 100%);
             background-size: 40px 40px;
-            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            padding: 40px;
+            margin: 0;
+            font-size: 16px;
         }
 
         .container {
             width: 360px;
-            margin: 80px auto;
-            padding: 20px;
+            margin: 60px auto;
+            padding: 30px;
             background-color: white;
-            border: 2px solid #ccc;
-            border-radius: 8px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+            border: 2px solid #b2dfdb;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
         }
 
         h2 {
             text-align: center;
-            color: #007BFF;
+            color: #00796b;
+            font-size: 2rem;
+            margin-bottom: 25px;
         }
 
         table {
@@ -62,35 +64,72 @@
         }
 
         td {
-            padding: 8px;
+            padding: 10px;
             vertical-align: middle;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #00796b;
+            font-weight: bold;
         }
 
         input[type="text"],
         input[type="password"] {
-            width: 95%;
-            padding: 6px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #b2dfdb;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #00796b;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 121, 107, 0.3);
         }
 
         input[type="submit"] {
-            background-color: #007BFF;
+            background-color: #00796b;
             color: white;
             border: none;
-            padding: 10px;
+            padding: 14px;
             width: 100%;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-top: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
         }
 
         input[type="submit"]:hover {
-            background-color: #0056b3;
+            background-color: #004d40;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
 
         .error {
-            color: red;
+            color: #d32f2f;
             text-align: center;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            padding: 8px;
+            background-color: #ffebee;
+            border-radius: 4px;
+            border-left: 4px solid #d32f2f;
+        }
+        
+        label {
+            color: #00796b;
+            font-weight: bold;
         }
     </style>
