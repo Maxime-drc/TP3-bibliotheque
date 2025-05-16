@@ -9,7 +9,8 @@
         <h1>Gestion des Abonnés</h1>
         
         <div class="actions-container">
-            <a href="#" class="btn">Ajouter un abonné</a>
+            <a href="<?= site_url('/ajouter_abonne') ?>" class="btn">Ajouter un abonné</a>
+
         </div>
 
         <table>

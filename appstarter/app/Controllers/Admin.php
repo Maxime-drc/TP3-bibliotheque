@@ -23,4 +23,22 @@ class Admin extends BaseController
     {
         return view('gerer_abonne');
     }
+
+    public function gererEmprunt()
+    {
+        return view('gerer_emprunt');
+    }
+
+    public function gererRetour()
+    {
+        return view('gerer_retour');
+    }
+
+    public function gererDemande()
+    {
+        return view('gerer_demande');
+    }
+
+    
 }
+

@@ -41,3 +41,6 @@ $routes->post('/abonne/store', 'Abonne::store');
 $routes->get('/gerer_livre', 'Admin::gererLivre');
 $routes->get('/gerer_exemplaire', 'Admin::gererExemplaire');
 $routes->get('/gerer_abonne', 'Admin::gererAbonne');
+$routes->get('/gerer_emprunt', 'Admin::gererEmprunt');
+$routes->get('/gerer_retour', 'Admin::gererRetour');
+$routes->get('/gerer_demande', 'Admin::gererDemande');

@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Models;
+
 use CodeIgniter\Model;
 
 class AbonneModel extends Model
@@ -7,7 +9,13 @@ class AbonneModel extends Model
     protected $table = 'abonne';
     protected $primaryKey = 'matricule_abonne';
     protected $allowedFields = [
-        'nom_abonne', 'date_naissance_abonne', 'date_adhesion_abonne',
-        'adresse_abonne', 'telephone_abonne', 'CSP_abonne'
+        'nom_abonne',
+        'date_naissance_abonne',
+        'date_adhesion_abonne',
+        'adresse_abonne',
+        'telephone_abonne',
+        'CSP_abonne',
+        'login',
+        'mot_de_passe',
     ];
 }
