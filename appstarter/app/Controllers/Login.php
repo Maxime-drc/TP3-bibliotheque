@@ -1,23 +1,30 @@
 <?php
 
 namespace App\Controllers;
+
+use App\Models\UserModel;
+
 class Login extends BaseController
 {
     public function index(): string
     {
         return view('login');
     }
-    public function attemptLogin()
+
+    public function attemptlogin()
     {
-        $userModel = new \App\Models\UserModel();
+        $usermodel = new UserModel();
 
-        $userFetched = $userModel ->where('matricule_abonne', $this->request->getPost('mlogin'))->first();
+        $userfetched = $usermodel->where('login', $this->request->getPost('username'))->first();
 
-        if($this->request->getpost('password') == $userFetched['nom_abonne']) {
-            return "Login OK";
-        } else {
-            return "Login failed";
-        }
+        if ($userfetched && $this->request->getPost('password') === $userfetched['mot_de_passe']) {
+            if (isset($userfetched['login']) && $userfetched['mot_de_passe'] === 'admin') {
+                return redirect()->to('/admin');
+            } else {
+                return redirect()->to('/bibliotheque');
+            }
+
+        } 
+        return redirect()->to('/Login');
     }
-
 }
